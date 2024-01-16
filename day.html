@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Date in Words</title>
+</head>
+<body>
+<h2>Current Date in Words</h2>
+<p id="currentDate"></p>
+<script>
+// Arrays for days, months, and suffixes
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+"Saturday"];
+var months = ["January", "February", "March", "April", "May", "June", "July",
+"August", "September", "October", "November", "December"];
+var suffixes = ["th", "st", "nd", "rd"];
+// Get the current date
+var currentDate = new Date();
+// Get day, month, and year
+var day = currentDate.getDate();
+var month = currentDate.getMonth();
+var year = currentDate.getFullYear();
+// Get the suffix for the day
+var daySuffix = (day >= 11 && day <= 13) ? suffixes[0] : suffixes[day % 10];
+// Create the date in words
+var dateInWords = days[currentDate.getDay()] + ", " + months[month] + " " + day +
+daySuffix + ", " + year;
+// Display the result
+document.getElementById("currentDate").innerHTML = "Current Date: " + dateInWords;
+</script>
+</body>
+</html>
